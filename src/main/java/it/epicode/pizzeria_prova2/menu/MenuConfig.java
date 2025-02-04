@@ -27,7 +27,7 @@ public class MenuConfig {
     private Topping salame;
 
     @Bean
-    public Menu creaMenu(){
+    public Menu Menu(){
         Menu m=new Menu();
         m.setNome("Menu Pranzo");
         m.getBevande().add(aranciata);

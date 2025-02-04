@@ -23,13 +23,12 @@ public class PizzaConfig {
     }
     @Bean
     public Pizza pizzaSalame(){
-        //Pizza p=new Pizza();
-       // p.setNome("Pizza Salame");
-       // p.setPrezzo(9.99);
-       // p.setCalorie(250);
-       // p.setToppings(List.of(salame));
-        //return p;
-        return new Pizza("Pizza Salame", 250, 9.99, List.of(salame));
+        Pizza p=new Pizza();
+        p.setNome("Pizza Salame");
+        p.setPrezzo(9.99);
+        p.setCalorie(250);p.setToppings(List.of(salame));
+        return p;
+       // return new Pizza("Pizza Salame", 250, 9.99, List.of(salame));
     }
     @Bean
     public Pizza pizzaFunghi(){
