@@ -10,4 +10,9 @@ import lombok.NoArgsConstructor;
 public class VoceMenu {
     private String nome;
     private double prezzo;
+
+    @Override
+    public String toString() {
+        return getNome();
+    }
 }

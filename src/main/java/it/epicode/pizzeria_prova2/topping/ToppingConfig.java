@@ -24,4 +24,12 @@ public class ToppingConfig {
         t.setCalorie(20);
         return t;
     }
+    @Bean
+    public Topping sugo(){
+        Topping t=new Topping();
+        t.setNome("Sugo");
+        t.setPrezzo(0.99);
+        t.setCalorie(20);
+        return t;
+    }
 }

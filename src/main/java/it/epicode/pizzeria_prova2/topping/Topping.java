@@ -12,4 +12,12 @@ import lombok.NoArgsConstructor;
 public class Topping extends VoceMenu {
     private int calorie;
 
+    public Topping(String nome, double prezzo, int calorie) {
+        super(nome, prezzo);
+        this.calorie = calorie;
+    }
+    @Override
+    public String toString() {
+        return  getNome() ;
+    }
 }

@@ -11,6 +11,6 @@ import org.springframework.context.annotation.Configuration;
 public class Tavolo {
     private int numeroTavolo;
     private int coperti;
-    private boolean stato;
+    private StatoTavolo stato;
 
 }

@@ -11,14 +11,17 @@ import java.util.List;
 public class PizzaConfig {
     @Autowired
     private Topping salame;
+    @Autowired
     private Topping abbondanteMozz;
+    @Autowired
+    private Topping sugo;
     @Bean
     public Pizza pizzaMargherita(){
         Pizza p=new Pizza();
         p.setNome("Pizza Margherita");
         p.setPrezzo(8.99);
         p.setCalorie(300);
-
+        p.setToppings(List.of(abbondanteMozz, sugo));
         return p;
     }
     @Bean

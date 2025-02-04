@@ -17,4 +17,8 @@ public class Pizza extends VoceMenu {
     private int calorie;
     private List<Topping> toppings=new ArrayList<>();
 
+    @Override
+    public String toString() {
+        return  getNome() + " " + toppings;
+    }
 }

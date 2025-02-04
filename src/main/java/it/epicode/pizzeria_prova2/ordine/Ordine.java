@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,27 +20,35 @@ import java.util.List;
 public class Ordine {
     private Tavolo tavolo;
     private List<VoceMenu> ordinazioni=new ArrayList<>();
-    private String stato;
+    private StatoOrdine stato;
     private int coperti;
-    private LocalDateTime data;
+    private LocalDateTime data=LocalDateTime.now();
     private static double costoCoperto;
     private double prezzoTotale=0;
 
 
     public double prezzoTotale(){
         double totaleOrdini= ordinazioni.stream().mapToDouble(VoceMenu::getPrezzo).sum();
-        System.out.println(totaleOrdini);
-        System.out.println(costoCoperto);
-        System.out.println(coperti);
         return totaleOrdini+costoCoperto*coperti;
     }
 
-    public Ordine (Tavolo tavolo, List<VoceMenu> ordinazioni, String stato, int coperti, LocalDateTime data){
+    public Ordine (Tavolo tavolo, List<VoceMenu> ordinazioni, StatoOrdine stato, int coperti){
         this.tavolo=tavolo;
         this.ordinazioni=ordinazioni;
         this.stato=stato;
         this.coperti=coperti;
-        this.data=data;
         this.prezzoTotale=prezzoTotale();
+    }
+    @Override
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return "Ordine{\n" +
+                "  Tavolo: " + tavolo + ",\n" +
+                "  Ordinazioni: " + ordinazioni + ",\n" +
+                "  Stato: '" + stato + "',\n" +
+                "  Coperti: " + coperti + ",\n" +
+                "  Data: " + data.format(formatter) + ",\n" +
+                "  Prezzo Totale: " + prezzoTotale + "\n" +
+                "}";
     }
 }

@@ -3,6 +3,7 @@ package it.epicode.pizzeria_prova2.runner;
 import it.epicode.pizzeria_prova2.alimento.VoceMenu;
 import it.epicode.pizzeria_prova2.menu.Menu;
 import it.epicode.pizzeria_prova2.ordine.Ordine;
+import it.epicode.pizzeria_prova2.ordine.StatoOrdine;
 import it.epicode.pizzeria_prova2.tavolo.Tavolo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -27,9 +29,8 @@ public class ApplicationRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(menu.getPizze().get(0).getPrezzo());
         List<VoceMenu> ordinazione = List.of(menu.getPizze().get(0), menu.getBevande().get(0));
-        Ordine ordine1=new Ordine(tavolo1, ordinazione,"In Corso",2, LocalDateTime.now());
+        Ordine ordine1=new Ordine(tavolo1, ordinazione, StatoOrdine.IN_CORSO,2);
         System.out.println(ordine1);
     }
 }
