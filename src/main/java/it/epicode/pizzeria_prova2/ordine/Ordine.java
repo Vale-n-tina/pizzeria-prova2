@@ -6,7 +6,7 @@ import it.epicode.pizzeria_prova2.tavolo.Tavolo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
