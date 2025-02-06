@@ -10,7 +10,7 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 @Configuration
 public class TavoloConfig {
-    private final Ordine ordine;
+
     @Bean
     public Tavolo tavolo1() {
         return new Tavolo(1,6, StatoTavolo.OCCUPATO)    ;
