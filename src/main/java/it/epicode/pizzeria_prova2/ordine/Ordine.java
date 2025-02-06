@@ -3,6 +3,7 @@ package it.epicode.pizzeria_prova2.ordine;
 import it.epicode.pizzeria_prova2.alimento.VoceMenu;
 import it.epicode.pizzeria_prova2.menu.Menu;
 import it.epicode.pizzeria_prova2.tavolo.Tavolo;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,12 +14,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Ordine {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
+    @ManyToOne
+    @JoinColumn(name="tavolo_id")
     private Tavolo tavolo;
+    @OneToMany
     private List<VoceMenu> ordinazioni=new ArrayList<>();
     private StatoOrdine stato;
     private int coperti;
