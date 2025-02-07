@@ -3,7 +3,9 @@ package it.epicode.pizzeria_prova2.pizze;
 
 import it.epicode.pizzeria_prova2.alimento.VoceMenu;
 import it.epicode.pizzeria_prova2.topping.Topping;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Pizza extends VoceMenu {
     private int calorie;
-    @OneToMany
+    @ManyToMany
     private List<Topping> toppings=new ArrayList<>();
 
 
